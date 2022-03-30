@@ -1,0 +1,56 @@
+
+/*Declaração de aluno em um array contendo um objeto com 3 "parâmetros" */
+
+const alunos = [
+    {
+        nome: 'João',
+        nota: 5,
+        turma: '1B',
+    },
+    {
+        nome: 'Sofia',
+        nota: 9,
+        turma: '1B',
+    },
+    {
+        nome: 'Paulo',
+        nota: 6,
+        turma: '2C',
+    },
+    {
+        nome: 'Miguel',
+        nota: 3,
+        turma: '2C',
+    },
+];
+
+function alunosAprovados (array, media) {
+    /* Array auxiliar com alunos aprovados
+    declarado fora do for, para que não seja criado um novo array a cada looping */
+
+    let aprovados = []; 
+   
+    //Utilizando objeto destruction
+    for (let i = 0; i < array.length ; i++){
+        /*Separa os dois elementos NOTA e ELEMENTO, atribuindo a uma const
+            e atribui eles ao ponteiro criado array[i]; */
+        const {nota, nome} = array[i]; 
+
+        if (nota >= media) {
+        //Utiliza o push para inserir valor ao final do array
+            aprovados.push(nome); 
+      
+        }
+
+        /* Fazendo a condição com o método convencional
+        if(array[i].nota >= media){
+            aprovados.push(array[i].nome)
+        } */
+    }
+    return aprovados;
+
+}
+
+console.log(alunosAprovados(alunos, 5));
+
+
